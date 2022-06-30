@@ -5,8 +5,14 @@ import Log from '../utils/logger';
 
 const readKey = (_fileName: string): string => {
   const filePath = path.resolve(__dirname, `../../keys/${_fileName}`);
-  const key = fs.readFileSync(filePath, 'utf8');
-  return key;
+  if(fs.existsSync(filePath)) {
+    const key = fs.readFileSync(filePath, 'utf8');
+    return key;
+  } 
+
+  Log.error('Private/Public key not found, generate the keys', { "run": "npm run generate:keys" })
+  Log.warn('RUN: npm run generate:keys')
+  process.exit(1);
 };
 
 Log.info('ENV :: Registering the env file');
