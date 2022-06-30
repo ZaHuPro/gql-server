@@ -1,2 +1,2 @@
 # gql-server
-gql-server is backend service which provides all the essential data to the application 
+A NodeJS boilerplate for GraphQL, Express JS and MongoDB
