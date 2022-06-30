@@ -1,7 +1,7 @@
 {
   "name": "gql-server",
   "version": "1.0.0",
-  "description": "gql-server is backend service which provides all the essential data to the application",
+  "description": "A NodeJS boilerplate for GraphQL, Express JS and MongoDB",
   "main": "index.ts",
   "scripts": {
     "clean": "rm -rf dist",
