@@ -20,18 +20,20 @@ export default {
       return userData.find((e) => e.id === id);
     },
   },
-
   Mutation: {
     addUser: async (_parent: any, { username }: any) => {
-        const entry = { id: userData.length + 1, username };
-        userData.push(entry);
-        pubsub.publish("USER_ADDED", entry);
-        return entry;
+      const entry = {
+        id: userData.length + 1,
+        username: username ? username : "NP",
+      };
+      userData.push(entry);
+      pubsub.publish("USER_ADDED", { userAdded: entry });
+      return entry;
     },
   },
   Subscription: {
     userAdded: {
-      subscribe: () => pubsub.asyncIterator("USER_ADDED"),
+      subscribe: () => pubsub.asyncIterator(["USER_ADDED"]),
     },
   },
 };

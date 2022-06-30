@@ -38,11 +38,12 @@ export default async () => {
 
   Log.info("WebSocketServer :: Creating web socket server...");
   const wsServer = new WebSocketServer({
-    server: httpServer,
+    port: 4000,
+    path: '/graphql',
   });
   // Save the returned server's info so we can shut down this server later
   const serverCleanup = useServer({ schema }, wsServer);
-
+  Log.info("WebSocketServer :: Created web socket server...");
   
   Log.info("Apollo :: Creating Apollo server...");
   const server = new ApolloServer({

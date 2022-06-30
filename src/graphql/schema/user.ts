@@ -8,7 +8,6 @@ export default gql`
   extend type Mutation {
     addUser(username: String!): User!
   }
-
   extend type Subscription {
     userAdded: User!
   }
