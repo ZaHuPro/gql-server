@@ -15,5 +15,12 @@ export default gql`
   type User {
     id: ID!
     username: String!
+    books: [Book!]
+  }
+
+  type Book {
+    id: ID!
+    name: String!
+    
   }
 `;
