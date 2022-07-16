@@ -35,7 +35,6 @@ export default async () => {
   Log.info("HTTP :: Creating HTTP server...");
   const httpServer = http.createServer(app);
 
-
   Log.info("WebSocketServer :: Creating web socket server...");
   const wsServer = new WebSocketServer({
     port: 4000,
@@ -43,7 +42,6 @@ export default async () => {
   });
   // Save the returned server's info so we can shut down this server later
   const serverCleanup = useServer({ schema }, wsServer);
-  Log.info("WebSocketServer :: Created web socket server...");
   
   Log.info("Apollo :: Creating Apollo server...");
   const server = new ApolloServer({
